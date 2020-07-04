@@ -38,7 +38,7 @@
         
      <form id="form2" runat="server">
         <div class="container">
-            <h3 class="text-success" style="text-align:center">Registro de Personal</h3><br>
+            <h3 class="text-success" style="text-align:center">Registro de Personal</h3>
                <div class="form-row">
                 <div class="form-group col-md-6">
                     <asp:Label ID="lbNombre" runat="server" Text="Nombre"></asp:Label>
@@ -125,17 +125,33 @@
                     <asp:Label ID="lbBono2" runat="server" Text="Bono 2"></asp:Label>
                     <asp:TextBox type="text" ID="tbBono2" runat="server" CssClass="form-control input-lg"></asp:TextBox>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                     <asp:Label ID="lbFechaIng" runat="server" Text="Fecha de Ingreso"></asp:Label>
                     <asp:TextBox type="date" ID="tbFechaIng" runat="server" CssClass="form-control input-lg"></asp:TextBox>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                  <asp:Label ID="lbCargo" runat="server" Text="Cargo"></asp:Label>
                  <asp:TextBox type="text" ID="tbCargo" runat="server" CssClass="form-control input-lg"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-2">
                     <asp:Label ID="lbArea" runat="server" Text="Area"></asp:Label>
                     <asp:TextBox type="text" ID="tbArea" runat="server" CssClass="form-control input-lg"></asp:TextBox>
+                </div>
+                <div class="form-group col-md-2">
+                    <asp:Label ID="lbTipoContrato" runat="server" Text="Tipo de Contrato"></asp:Label>
+                    <asp:TextBox type="text" ID="tbTipoContrato" runat="server" CssClass="form-control input-lg"></asp:TextBox>
+                </div>
+                <div class="form-group col-md-1">
+                    <asp:Label ID="lbEmpresa" runat="server" Text="Empresa"></asp:Label>
+                    <asp:TextBox type="text" ID="tbEmpresa" runat="server" CssClass="form-control input-lg"></asp:TextBox>
+                </div>
+                <div class="form-group col-md-2">
+                    <asp:Label ID="lbCajaCom" runat="server" Text="Caja Compensacion"></asp:Label>
+                    <asp:TextBox type="text" ID="tbCajaCom" runat="server" CssClass="form-control input-lg"></asp:TextBox>
+                </div>
+                <div class="form-group col-md-1">
+                    <asp:Label ID="lbMutualidad" runat="server" Text="Mutualidad"></asp:Label>
+                    <asp:TextBox type="text" ID="tbMutualidad" runat="server" CssClass="form-control input-lg"></asp:TextBox>
                 </div>
                 </div>
               <div class="form-group">
