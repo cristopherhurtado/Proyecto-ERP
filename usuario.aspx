@@ -18,9 +18,7 @@
     <nav class="navbar navbar-dark bg-black-gradient">
                 <img src="./img/LOGO DS 3.PNG" width="200"/>
                     <ul class="nav justify-content-center">
-                      <li class="nav-item">
-                        <!--<a class="nav-link active" href="#">Inicio</a>-->
-                      </li>
+                      <li class="nav-item"></li>
                       <li class="nav-item">
                         <a class="nav-link" href="registro.aspx">Registro</a>
                       </li>
@@ -39,47 +37,28 @@
         <div>
              <div class="container">
             <h3 class="text-success" style="text-align:center">Usuario</h3><br>
-               <asp:Button ID="btnNuevoUsu" type="submit" cssClass="btn btn-primary" runat="server" Text="Nuevo Usuario" OnClick="btnNuevoUsu_Click" />
+              
                <div class="form-row">
                    <table class="table table-striped">
                           <thead>
                             <tr>
                               <th scope="col">Nombre</th>
-                              <th scope="col">Rut</th>
-                              <th scope="col">Email</th>
-                              <th scope="col">Rol</th>
+                              <th scope="col">Codigo</th>
+                              <th scope="col">Perfil</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <th scope="row">Usuario</th>
-                              <td>Apellido</td>
-                              <td>usuario@decimalservice.cl</td>
+                              <td>xxzzzsss-d</td>
                               <td>Administrador</td>
                             </tr>
-                            <tr>
-                              <th scope="row">Usuario</th>
-                              <td>Apellido</td>
-                              <td>usuario@decimalservice.cl</td>
-                              <td>Asistente</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Usuario</th>
-                              <td>Apellido</td>
-                              <td>usuario@decimalservice.cl</td>
-                              <td>Digitador</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Usuario</th>
-                              <td>Apellido</td>
-                              <td>usuario@decimalservice.cl</td>
-                              <td>Supervisor</td>
-                            </tr>
-                          </tbody>
+                       </tbody>
                         </table>
                     </div>
               <div class="form-group">
-                   <asp:Button ID="btnEditarUsu"  type="submit" cssClass="btn btn-success" runat="server" Text="Editar" OnClick="btnEditarUsu_Click" />
+                  <asp:Button ID="btnNuevoUsu" type="submit" cssClass="btn btn-primary" runat="server" Text="Nuevo Usuario" OnClick="btnNuevoUsu_Click" />
+                  <asp:Button ID="btnEditarUsu"  type="submit" cssClass="btn btn-success" runat="server" Text="Editar" OnClick="btnEditarUsu_Click" />
                   <asp:Button ID="btnEliminarUsu" type="submit" cssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarUsu_Click" />
                </div>
     </form>
