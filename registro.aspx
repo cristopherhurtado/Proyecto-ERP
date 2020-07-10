@@ -22,13 +22,13 @@
                         <!--<a class="nav-link active" href="#">Inicio</a>-->
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="registro.aspx">Registro</a>
+                        <a class="nav-link" href="registro.aspx">Personal</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="ver.aspx">Ver</a>
+                        <!--<a class="nav-link" href="ver.aspx">Ver</a>-->
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="usuario.aspx">Usuario</a>
+                        <a class="nav-link" href="usuario2.aspx">Usuario</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link text-aqua" href="login.aspx">Cerrar Secion</a>

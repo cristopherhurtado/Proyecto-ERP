@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="usuario.aspx.cs" Inherits="EditUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="verRegistro.aspx.cs" Inherits="Inicio" %>
 
 <!DOCTYPE html>
 
@@ -18,12 +18,14 @@
     <nav class="navbar navbar-dark bg-black-gradient">
                 <img src="./img/LOGO DS 3.PNG" width="200"/>
                     <ul class="nav justify-content-center">
-                      <li class="nav-item"></li>
+                      <li class="nav-item">
+                        <!--<a class="nav-link active" href="#">Inicio</a>-->
+                      </li>
                       <li class="nav-item">
                         <a class="nav-link" href="registro.aspx">Registro</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="ver.aspx">Ver</a>
+                        <a class="nav-link" href="verRegistro.aspx">Ver</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="usuario.aspx">Usuario</a>
@@ -33,37 +35,70 @@
                         </li>
                     </ul>
             </nav><br>
-    <form id="form3" runat="server">
+    <form id="form4" runat="server">
         <div>
+            <div>
              <div class="container">
-            <h3 class="text-success" style="text-align:center">Usuario</h3><br>
-              
+            <h3 class="text-success" style="text-align:center">Ver Personal</h3><br>
+                 <!--<button type="submit" class="btn btn-primary">Nuevo Usuario</button>-->
                <div class="form-row">
                    <table class="table table-striped">
                           <thead>
                             <tr>
+                              <th scope="col">Rut</th>
                               <th scope="col">Nombre</th>
-                              <th scope="col">Codigo</th>
-                              <th scope="col">Perfil</th>
+                              <th scope="col">Apellido 1 </th>
+                              <th scope="col">Apellido 2</th>
+                              <th scope="col">Fecha de Ingreso</th>
+                              <th scope="col">Cargo</th>
+                              <th scope="col">Area</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row">Usuario</th>
-                              <td>xxzzzsss-d</td>
-                              <td>Administrador</td>
+                              <th scope="row">xxxxxxxx-x</th>
+                              <td>Nombre</td>
+                              <td>Apellido1</td>
+                              <td>Apellido2</td>
+                              <td>DD/MM/AAAA</td>
+                              <td>Cargo</td>
+                              <td>Area</td>
                             </tr>
-                       </tbody>
-                        </table>
-                    </div>
-              <div class="form-group">
-                  <asp:Button ID="btnNuevoUsu" type="submit" cssClass="btn btn-primary" runat="server" Text="Nuevo Usuario" OnClick="btnNuevoUsu_Click" />
-                  <asp:Button ID="btnEditarUsu"  type="submit" cssClass="btn btn-success" runat="server" Text="Editar" OnClick="btnEditarUsu_Click" />
-                  <asp:Button ID="btnEliminarUsu" type="submit" cssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminarUsu_Click" />
-               </div>
-    </form>
+                            <tr>
+                              <th scope="row">xxxxxxxx-x</th>
+                              <td>Nombre</td>
+                              <td>Apellido1</td>
+                              <td>Apellido2</td>
+                              <td>DD/MM/AAAA</td>
+                              <td>Cargo</td>
+                              <td>Area</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">xxxxxxxx-x</th>
+                              <td>Nombre</td>
+                              <td>Apellido1</td>
+                              <td>Apellido2</td>
+                              <td>DD/MM/AAAA</td>
+                              <td>Cargo</td>
+                              <td>Area</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">xxxxxxxx-x</th>
+                              <td>Nombre</td>
+                              <td>Apellido1</td>
+                              <td>Apellido2</td>
+                              <td>DD/MM/AAAA</td>
+                              <td>Cargo</td>
+                              <td>Area</td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>            
+                 </div>
+             </form>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </body>
+
+</body>
 </html>
