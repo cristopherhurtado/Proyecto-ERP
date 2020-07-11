@@ -69,7 +69,7 @@
                 </div>
                    <div class="form-group col-md-2">
                     <asp:Label ID="lbNumero" runat="server" Text="Casa / Depto"></asp:Label>
-                    <asp:TextBox type="text" ID="txt_numero" runat="server" CssClass="form-control input-lg"></asp:TextBox>
+                    <asp:TextBox type="text" ID="txt_casa" runat="server" CssClass="form-control input-lg"></asp:TextBox>
                 </div>
                  <div class="form-group col-md-3">
                     <asp:Label ID="lbComuna" runat="server" Text="Comuna"></asp:Label>
@@ -80,8 +80,9 @@
                     <asp:TextBox type="text" ID="txt_ciudad" runat="server" CssClass="form-control input-lg"></asp:TextBox>
                 </div>
                  <div class="form-group col-md-2">
-                  <asp:Label ID="lbFonIsa" runat="server" Text="Fonasa / Isapre"></asp:Label>
-                  <asp:TextBox type="text" ID="txt_fonasaIsapre" runat="server" CssClass="form-control input-lg"></asp:TextBox>
+                      <asp:Label ID="lbFonIsa" runat="server" Text="Prevision"></asp:Label>
+                      <asp:DropDownList ID="cbo_salud" runat="server" Height="35px" Width="183px" DataSourceID="SqlDataSource2" DataTextField="nom_prevision" DataValueField="cod_prevision"></asp:DropDownList>
+                      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" SelectCommand="SELECT * FROM [previsiones]"></asp:SqlDataSource>
                 </div>
                 <div class="form-group col-md-3">
                     <asp:Label ID="lbAfp" runat="server" Text="AFP"></asp:Label>
@@ -142,16 +143,103 @@
                 </div>
                 </div>
               <div class="form-group">
-                  <asp:Button ID="btn_buscar" type="submit" class="btn btn-secondary" runat="server" Text="Buscar"/>
-                  <asp:Button ID="btn_guardar" type="submit" class="btn btn-primary" runat="server" Text="Guardar"/>
-                  <asp:Button ID="btn_actualizar" type="submit" class="btn btn-success" runat="server" Text="Actualizar"/>
-                  <asp:Button ID="btn_eliminar" type="submit" class="btn btn-danger" runat="server" Text="Eliminar"/>
+                  <asp:Button ID="btn_buscar" type="submit" class="btn btn-secondary" runat="server" Text="Buscar" OnClick="btn_buscar_Click"/>
+                  <asp:Button ID="btn_guardar" type="submit" class="btn btn-primary" runat="server" Text="Guardar" OnClick="btn_guardar_Click"/>
+                  <asp:Button ID="btn_actualizar" type="submit" class="btn btn-success" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click"/>
+                  <asp:Button ID="btn_eliminar" type="submit" class="btn btn-danger" runat="server" Text="Eliminar" OnClick="btn_eliminar_Click"/>
           </div>
         </div>
-    </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+         <asp:Label ID="mensaje" runat="server" Text="mensaje"></asp:Label>
+         <br />
+         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="rut" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
+             <Columns>
+                 <asp:BoundField DataField="rut" HeaderText="rut" ReadOnly="True" SortExpression="rut" />
+                 <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
+                 <asp:BoundField DataField="apellido1" HeaderText="apellido1" SortExpression="apellido1" />
+                 <asp:BoundField DataField="estado_civil" HeaderText="estado_civil" SortExpression="estado_civil" />
+                 <asp:BoundField DataField="calle" HeaderText="calle" SortExpression="calle" />
+                 <asp:BoundField DataField="casa" HeaderText="casa" SortExpression="casa" />
+                 <asp:BoundField DataField="comuna" HeaderText="comuna" SortExpression="comuna" />
+                 <asp:BoundField DataField="ciudad" HeaderText="ciudad" SortExpression="ciudad" />
+                 <asp:BoundField DataField="afp" HeaderText="afp" SortExpression="afp" />
+                 <asp:BoundField DataField="sueldo_base" HeaderText="sueldo_base" SortExpression="sueldo_base" />
+                 <asp:BoundField DataField="movilizacion" HeaderText="movilizacion" SortExpression="movilizacion" />
+                 <asp:BoundField DataField="colacion" HeaderText="colacion" SortExpression="colacion" />
+                 <asp:BoundField DataField="asistencia" HeaderText="asistencia" SortExpression="asistencia" />
+                 <asp:BoundField DataField="bono" HeaderText="bono" SortExpression="bono" />
+                 <asp:BoundField DataField="tipo_contrato" HeaderText="tipo_contrato" SortExpression="tipo_contrato" />
+                 <asp:BoundField DataField="fecha_ing" HeaderText="fecha_ing" SortExpression="fecha_ing" />
+                 <asp:BoundField DataField="cargo" HeaderText="cargo" SortExpression="cargo" />
+                 <asp:BoundField DataField="area" HeaderText="area" SortExpression="area" />
+                 <asp:BoundField DataField="salud" HeaderText="salud" SortExpression="salud" />
+             </Columns>
+         </asp:GridView>
+         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" DeleteCommand="DELETE FROM [registros] WHERE [rut] = @rut" InsertCommand="INSERT INTO [registros] ([rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud]) VALUES (@rut, @nombre, @apellido1, @apellido2, @fecha_nacimiento, @estado_civil, @nacionalidad, @calle, @casa, @comuna, @ciudad, @afp, @telefono, @email, @sueldo_base, @movilizacion, @colacion, @asistencia, @bono, @tipo_contrato, @fecha_ing, @cargo, @area, @caja_compensacion, @mutualidad, @salud)" ProviderName="<%$ ConnectionStrings:MI_RRHHConnectionString.ProviderName %>" SelectCommand="SELECT [rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud] FROM [registros]" UpdateCommand="UPDATE [registros] SET [nombre] = @nombre, [apellido1] = @apellido1, [apellido2] = @apellido2, [fecha_nacimiento] = @fecha_nacimiento, [estado_civil] = @estado_civil, [nacionalidad] = @nacionalidad, [calle] = @calle, [casa] = @casa, [comuna] = @comuna, [ciudad] = @ciudad, [afp] = @afp, [telefono] = @telefono, [email] = @email, [sueldo_base] = @sueldo_base, [movilizacion] = @movilizacion, [colacion] = @colacion, [asistencia] = @asistencia, [bono] = @bono, [tipo_contrato] = @tipo_contrato, [fecha_ing] = @fecha_ing, [cargo] = @cargo, [area] = @area, [caja_compensacion] = @caja_compensacion, [mutualidad] = @mutualidad, [salud] = @salud WHERE [rut] = @rut">
+             <DeleteParameters>
+                 <asp:Parameter Name="rut" Type="String" />
+             </DeleteParameters>
+             <InsertParameters>
+                 <asp:Parameter Name="rut" Type="String" />
+                 <asp:Parameter Name="nombre" Type="String" />
+                 <asp:Parameter Name="apellido1" Type="String" />
+                 <asp:Parameter Name="apellido2" Type="String" />
+                 <asp:Parameter Name="fecha_nacimiento" Type="DateTime" />
+                 <asp:Parameter Name="estado_civil" Type="String" />
+                 <asp:Parameter Name="nacionalidad" Type="String" />
+                 <asp:Parameter Name="calle" Type="String" />
+                 <asp:Parameter Name="casa" Type="String" />
+                 <asp:Parameter Name="comuna" Type="String" />
+                 <asp:Parameter Name="ciudad" Type="String" />
+                 <asp:Parameter Name="afp" Type="String" />
+                 <asp:Parameter Name="telefono" Type="String" />
+                 <asp:Parameter Name="email" Type="String" />
+                 <asp:Parameter Name="sueldo_base" Type="String" />
+                 <asp:Parameter Name="movilizacion" Type="String" />
+                 <asp:Parameter Name="colacion" Type="String" />
+                 <asp:Parameter Name="asistencia" Type="String" />
+                 <asp:Parameter Name="bono" Type="String" />
+                 <asp:Parameter Name="tipo_contrato" Type="String" />
+                 <asp:Parameter Name="fecha_ing" Type="DateTime" />
+                 <asp:Parameter Name="cargo" Type="String" />
+                 <asp:Parameter Name="area" Type="String" />
+                 <asp:Parameter Name="caja_compensacion" Type="String" />
+                 <asp:Parameter Name="mutualidad" Type="String" />
+                 <asp:Parameter Name="salud" Type="Int32" />
+             </InsertParameters>
+             <UpdateParameters>
+                 <asp:Parameter Name="nombre" Type="String" />
+                 <asp:Parameter Name="apellido1" Type="String" />
+                 <asp:Parameter Name="apellido2" Type="String" />
+                 <asp:Parameter Name="fecha_nacimiento" Type="DateTime" />
+                 <asp:Parameter Name="estado_civil" Type="String" />
+                 <asp:Parameter Name="nacionalidad" Type="String" />
+                 <asp:Parameter Name="calle" Type="String" />
+                 <asp:Parameter Name="casa" Type="String" />
+                 <asp:Parameter Name="comuna" Type="String" />
+                 <asp:Parameter Name="ciudad" Type="String" />
+                 <asp:Parameter Name="afp" Type="String" />
+                 <asp:Parameter Name="telefono" Type="String" />
+                 <asp:Parameter Name="email" Type="String" />
+                 <asp:Parameter Name="sueldo_base" Type="String" />
+                 <asp:Parameter Name="movilizacion" Type="String" />
+                 <asp:Parameter Name="colacion" Type="String" />
+                 <asp:Parameter Name="asistencia" Type="String" />
+                 <asp:Parameter Name="bono" Type="String" />
+                 <asp:Parameter Name="tipo_contrato" Type="String" />
+                 <asp:Parameter Name="fecha_ing" Type="DateTime" />
+                 <asp:Parameter Name="cargo" Type="String" />
+                 <asp:Parameter Name="area" Type="String" />
+                 <asp:Parameter Name="caja_compensacion" Type="String" />
+                 <asp:Parameter Name="mutualidad" Type="String" />
+                 <asp:Parameter Name="salud" Type="Int32" />
+                 <asp:Parameter Name="rut" Type="String" />
+             </UpdateParameters>
+         </asp:SqlDataSource>
+    </form>
+    
 </body>
 </html>
