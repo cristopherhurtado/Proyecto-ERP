@@ -25,7 +25,6 @@ using Mi_RRHH;
             txt_nombre.Text = "";
             txt_password.Text = "";
             txt_codigo.Enabled = true;
-            //txt_nombre.Enabled = false;
             cbo_perfil.SelectedIndex = -1;
         }
 
@@ -37,7 +36,7 @@ using Mi_RRHH;
                 per = int.Parse(cbo_perfil.SelectedValue.ToString());
                 con.insertar(txt_codigo.Text, txt_nombre.Text, txt_password.Text, per);
                 GridView1.DataBind();
-                mensaje.Text = "registro ok";
+                mensaje.Text = "Registro ok";
                 limpiar();
             }
             else
@@ -46,7 +45,7 @@ using Mi_RRHH;
                 per = int.Parse(cbo_perfil.SelectedValue.ToString());
                 con.modificar(txt_codigo.Text, txt_nombre.Text, txt_password.Text, per);
                 GridView1.DataBind();
-                mensaje.Text = "registro Actualizado";
+                mensaje.Text = "Registro Actualizado";
                 limpiar();
             }
 
@@ -63,12 +62,11 @@ using Mi_RRHH;
                 txt_password.Text = dset.Tables[0].Rows[0][2].ToString();
                 cbo_perfil.Text = dset.Tables[0].Rows[0][3].ToString();
                 txt_codigo.Enabled = false;
-                //txt_nombre.Enabled = false;
-                mensaje.Text = "registro encontrado";
+                mensaje.Text = "Registro encontrado";
             }
             else
             {
-                mensaje.Text = "registro no encontrado";
+                mensaje.Text = "Registro no encontrado";
             }
         }
 
@@ -78,7 +76,7 @@ using Mi_RRHH;
             per = int.Parse(cbo_perfil.SelectedValue.ToString());
             con.modificar(txt_codigo.Text, txt_nombre.Text, txt_password.Text, per);
             GridView1.DataBind();
-            mensaje.Text = "registro Actualizado";
+            mensaje.Text = "Registro Actualizado";
             limpiar();
         }
 

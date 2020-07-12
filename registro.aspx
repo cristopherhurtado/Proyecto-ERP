@@ -147,38 +147,32 @@
                   <asp:Button ID="btn_guardar" type="submit" class="btn btn-primary" runat="server" Text="Guardar" OnClick="btn_guardar_Click"/>
                   <asp:Button ID="btn_actualizar" type="submit" class="btn btn-success" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click"/>
                   <asp:Button ID="btn_eliminar" type="submit" class="btn btn-danger" runat="server" Text="Eliminar" OnClick="btn_eliminar_Click"/>
+                  <asp:Label ID="mensaje" runat="server" class="text-danger" text="*"></asp:Label>
           </div>
-        </div>
+      
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-         <asp:Label ID="mensaje" runat="server" Text="mensaje"></asp:Label>
+         
          <br />
          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="rut" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
              <Columns>
-                 <asp:BoundField DataField="rut" HeaderText="rut" ReadOnly="True" SortExpression="rut" />
-                 <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-                 <asp:BoundField DataField="apellido1" HeaderText="apellido1" SortExpression="apellido1" />
-                 <asp:BoundField DataField="estado_civil" HeaderText="estado_civil" SortExpression="estado_civil" />
-                 <asp:BoundField DataField="calle" HeaderText="calle" SortExpression="calle" />
-                 <asp:BoundField DataField="casa" HeaderText="casa" SortExpression="casa" />
-                 <asp:BoundField DataField="comuna" HeaderText="comuna" SortExpression="comuna" />
-                 <asp:BoundField DataField="ciudad" HeaderText="ciudad" SortExpression="ciudad" />
-                 <asp:BoundField DataField="afp" HeaderText="afp" SortExpression="afp" />
-                 <asp:BoundField DataField="sueldo_base" HeaderText="sueldo_base" SortExpression="sueldo_base" />
-                 <asp:BoundField DataField="movilizacion" HeaderText="movilizacion" SortExpression="movilizacion" />
-                 <asp:BoundField DataField="colacion" HeaderText="colacion" SortExpression="colacion" />
-                 <asp:BoundField DataField="asistencia" HeaderText="asistencia" SortExpression="asistencia" />
-                 <asp:BoundField DataField="bono" HeaderText="bono" SortExpression="bono" />
-                 <asp:BoundField DataField="tipo_contrato" HeaderText="tipo_contrato" SortExpression="tipo_contrato" />
-                 <asp:BoundField DataField="fecha_ing" HeaderText="fecha_ing" SortExpression="fecha_ing" />
-                 <asp:BoundField DataField="cargo" HeaderText="cargo" SortExpression="cargo" />
-                 <asp:BoundField DataField="area" HeaderText="area" SortExpression="area" />
-                 <asp:BoundField DataField="salud" HeaderText="salud" SortExpression="salud" />
+                 <asp:BoundField DataField="rut" HeaderText="Rut" ReadOnly="True" SortExpression="rut" />
+                 <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
+                 <asp:BoundField DataField="apellido1" HeaderText="Apellido1" SortExpression="apellido1" />
+                 <asp:BoundField DataField="sueldo_base" HeaderText="Sueldo Base" SortExpression="sueldo_base" />
+                 <asp:BoundField DataField="movilizacion" HeaderText="Bono Movilizacion" SortExpression="movilizacion" />
+                 <asp:BoundField DataField="colacion" HeaderText="Bono Colacion" SortExpression="colacion" />
+                 <asp:BoundField DataField="asistencia" HeaderText="Bono Asistencia" SortExpression="asistencia" />
+                 <asp:BoundField DataField="bono" HeaderText="Bono" SortExpression="bono" />
+                 <asp:BoundField DataField="tipo_contrato" HeaderText="Tipo contrato" SortExpression="tipo_contrato" />
+                 <asp:BoundField DataField="fecha_ing" HeaderText="Fecha Ingreso" SortExpression="fecha_ing" />
+                 <asp:BoundField DataField="cargo" HeaderText="Cargo" SortExpression="cargo" />
+                 <asp:BoundField DataField="area" HeaderText="Area" SortExpression="area" />
              </Columns>
          </asp:GridView>
-         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" DeleteCommand="DELETE FROM [registros] WHERE [rut] = @rut" InsertCommand="INSERT INTO [registros] ([rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud]) VALUES (@rut, @nombre, @apellido1, @apellido2, @fecha_nacimiento, @estado_civil, @nacionalidad, @calle, @casa, @comuna, @ciudad, @afp, @telefono, @email, @sueldo_base, @movilizacion, @colacion, @asistencia, @bono, @tipo_contrato, @fecha_ing, @cargo, @area, @caja_compensacion, @mutualidad, @salud)" ProviderName="<%$ ConnectionStrings:MI_RRHHConnectionString.ProviderName %>" SelectCommand="SELECT [rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud] FROM [registros]" UpdateCommand="UPDATE [registros] SET [nombre] = @nombre, [apellido1] = @apellido1, [apellido2] = @apellido2, [fecha_nacimiento] = @fecha_nacimiento, [estado_civil] = @estado_civil, [nacionalidad] = @nacionalidad, [calle] = @calle, [casa] = @casa, [comuna] = @comuna, [ciudad] = @ciudad, [afp] = @afp, [telefono] = @telefono, [email] = @email, [sueldo_base] = @sueldo_base, [movilizacion] = @movilizacion, [colacion] = @colacion, [asistencia] = @asistencia, [bono] = @bono, [tipo_contrato] = @tipo_contrato, [fecha_ing] = @fecha_ing, [cargo] = @cargo, [area] = @area, [caja_compensacion] = @caja_compensacion, [mutualidad] = @mutualidad, [salud] = @salud WHERE [rut] = @rut">
+         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" DeleteCommand="DELETE FROM [registros] WHERE [rut] = @rut" InsertCommand="INSERT INTO [registros] ([rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud]) VALUES (@rut, @nombre, @apellido1, @apellido2, @fecha_nacimiento, @estado_civil, @nacionalidad, @calle, @casa, @comuna, @ciudad, @afp, @telefono, @email, @sueldo_base, @movilizacion, @colacion, @asistencia, @bono, @tipo_contrato, @fecha_ing, @cargo, @area, @caja_compensacion, @mutualidad, @salud)" ProviderName="<%$ ConnectionStrings:MI_RRHHConnectionString.ProviderName %>" SelectCommand="SELECT [rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud] FROM [registros]" UpdateCommand="UPDATE [registros] SET [nombre] = @nombre, [apellido1] = @apellido1, [apellido2] = @apellido2, [fecha_nacimiento] = @fecha_nacimiento, [estado_civil] = @estado_civil, [nacionalidad] = @nacionalidad, [calle] = @calle, [casa] = @casa, [comuna] = @comuna, [ciudad] = @ciudad, [afp] = @afp, [telefono] = @telefono, [email] = @email, [sueldo_base] = @sueldo_base, [movilizacion] = @movilizacion, [colacion] = @colacion, [asistencia] = @asistencia, [bono] = @bono, [tipo_contrato] = @tipo_contrato, [fecha_ing] = @fecha_ing, [cargo] = @cargo, [area] = @area, [caja_compensacion] = @caja_compensacion, [mutualidad] = @mutualidad, [salud] = @salud WHERE [rut] = @rut" OnSelecting="SqlDataSource1_Selecting">
              <DeleteParameters>
                  <asp:Parameter Name="rut" Type="String" />
              </DeleteParameters>
@@ -239,7 +233,9 @@
                  <asp:Parameter Name="rut" Type="String" />
              </UpdateParameters>
          </asp:SqlDataSource>
-    </form>
-    
+        <br />
+    </div> 
+   </form>
+        
 </body>
 </html>

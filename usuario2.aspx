@@ -34,10 +34,11 @@
                     </ul>
             </nav><br>
     <form id="form9" runat="server">
-        <div class="container col-5">
-            <h3 class="text-success" style="text-align:center">Usuario</h3><br><br><br>
-
-                <table class="table table-hover">
+          <h3 class="text-success" style="text-align:center">Usuario</h3><br><br><br>
+ <div class="container">
+    <div class= "row">
+     <div class="container col-6">
+         <table class="table table-hover">
                 <tr>
                   <th>Codigo:</th>
                     <td><asp:TextBox ID="txt_codigo" runat="server"></asp:TextBox></td>
@@ -58,27 +59,28 @@
                     <td><asp:TextBox ID="txt_password" runat="server"></asp:TextBox></td>
                 </tr>
               </table>                     
-              <div class="form-group col-md-12">
-                 <div class="form-row">
-                 <asp:Button ID="btn_guardar"  type="submit" cssClass="btn btn-outline-primary" runat="server" Text="Guardar" OnClick="btn_guardar_Click"/>
-                 <asp:Button ID="btn_buscar"  type="submit" cssClass="btn btn-outline-dark" runat="server" Text="Buscar" OnClick="btn_buscar_Click"/>
-                 <asp:Button ID="btn_editar"  type="submit" cssClass="btn btn-outline-success" runat="server" Text="Editar" OnClick="btn_editar_Click"/>
-                 <asp:Button ID="btn_eliminar"  type="submit" cssClass="btn btn-outline-danger" runat="server" Text="Eliminar" OnClick="btn_eliminar_Click"/>               
-              </div>
-           </div>
-   </div>
+           
+             <div class="form-group">
+                 <asp:Button ID="btn_buscar"  type="submit" cssClass="btn btn-secondary" runat="server" Text="Buscar" OnClick="btn_buscar_Click"/>
+                 <asp:Button ID="btn_guardar"  type="submit" cssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="btn_guardar_Click"/>
+                 <asp:Button ID="btn_editar"  type="submit" cssClass="btn btn-success" runat="server" Text="Actualizar" OnClick="btn_editar_Click"/>
+                 <asp:Button ID="btn_eliminar"  type="submit" cssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btn_eliminar_Click"/>               
+                 <asp:Label ID="mensaje" runat="server" class="text-danger" Text="*"></asp:Label>
+             </div>
+        
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>    
-      <div class="container col-3">
-          <asp:Label ID="mensaje" runat="server" Text="Label"></asp:Label>
+      
+          
           <br />
+        <div class="container col-6">
           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
               <Columns>
-                  <asp:BoundField DataField="codigo" HeaderText="codigo" ReadOnly="True" SortExpression="codigo" />
-                  <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-                  <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
-                  <asp:BoundField DataField="perfil" HeaderText="perfil" SortExpression="perfil" />
+                  <asp:BoundField DataField="codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="codigo" />
+                  <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
+                  <asp:BoundField DataField="perfil" HeaderText="Perfil" SortExpression="perfil" />
               </Columns>
           </asp:GridView>
           <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" DeleteCommand="DELETE FROM [usuario] WHERE [codigo] = @codigo" InsertCommand="INSERT INTO [usuario] ([codigo], [nombre], [password], [perfil]) VALUES (@codigo, @nombre, @password, @perfil)" SelectCommand="SELECT [codigo], [nombre], [password], [perfil] FROM [usuario]" UpdateCommand="UPDATE [usuario] SET [nombre] = @nombre, [password] = @password, [perfil] = @perfil WHERE [codigo] = @codigo">
@@ -100,6 +102,8 @@
           </asp:SqlDataSource>
           <br />
     </div>
-       </form>
-        </body>
+  </div>
+</div>
+   </form>
+    </body>
 </html>

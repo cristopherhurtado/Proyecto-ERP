@@ -78,11 +78,11 @@ public partial class Registro : System.Web.UI.Page
             txt_cajaCom.Text = dset.Tables[0].Rows[0][23].ToString();
             txt_mutualidad.Text = dset.Tables[0].Rows[0][24].ToString();
             cbo_salud.Text = dset.Tables[0].Rows[0][25].ToString();
-            mensaje.Text = "registro encontrado";
+            mensaje.Text = "Registro encontrado";
         }
         else
         {
-            mensaje.Text = "registro no encontrado";
+            mensaje.Text = "Registro no encontrado";
         }
     }
 
@@ -92,7 +92,7 @@ public partial class Registro : System.Web.UI.Page
         reg = int.Parse(cbo_salud.SelectedValue.ToString());
         con.update(txt_rut.Text, txt_nombre.Text, txt_apellido1.Text, txt_apellido2.Text, txt_fechaNacimiento.Text, txt_estadoCivil.Text, txt_nacionalidad.Text, txt_calle.Text, txt_casa.Text, txt_comuna.Text, txt_ciudad.Text, txt_afp.Text, txt_telefono.Text, txt_email.Text, txt_sueldoBase.Text, txt_movilizacion.Text, txt_colacion.Text, txt_asistencia.Text, txt_bono.Text, txt_tipoContrato.Text, txt_fechaIng.Text, txt_cargo.Text, txt_area.Text, txt_cajaCom.Text, txt_mutualidad.Text, reg);
         GridView1.DataBind();
-        mensaje.Text = "registro Actualizado";
+        mensaje.Text = "Registro Actualizado";
         limpiar();
     }
 
@@ -104,7 +104,7 @@ public partial class Registro : System.Web.UI.Page
             reg = int.Parse(cbo_salud.SelectedValue.ToString());
             con.insert(txt_rut.Text, txt_nombre.Text, txt_apellido1.Text, txt_apellido2.Text, txt_fechaNacimiento.Text, txt_estadoCivil.Text, txt_nacionalidad.Text, txt_calle.Text, txt_casa.Text, txt_comuna.Text, txt_ciudad.Text, txt_afp.Text, txt_telefono.Text, txt_email.Text, txt_sueldoBase.Text, txt_movilizacion.Text, txt_colacion.Text, txt_asistencia.Text, txt_bono.Text, txt_tipoContrato.Text, txt_fechaIng.Text, txt_cargo.Text, txt_area.Text, txt_cajaCom.Text, txt_mutualidad.Text, reg);
             GridView1.DataBind();
-            mensaje.Text = "registro ok";
+            mensaje.Text = "Registro ok";
             limpiar();
         }
         else
@@ -113,7 +113,7 @@ public partial class Registro : System.Web.UI.Page
             reg = int.Parse(cbo_salud.SelectedValue.ToString());
             con.update(txt_rut.Text, txt_nombre.Text, txt_apellido1.Text, txt_apellido2.Text, txt_fechaNacimiento.Text, txt_estadoCivil.Text, txt_nacionalidad.Text, txt_calle.Text, txt_casa.Text, txt_comuna.Text, txt_ciudad.Text, txt_afp.Text, txt_telefono.Text, txt_email.Text, txt_sueldoBase.Text, txt_movilizacion.Text, txt_colacion.Text, txt_asistencia.Text, txt_bono.Text, txt_tipoContrato.Text, txt_fechaIng.Text, txt_cargo.Text, txt_area.Text, txt_cajaCom.Text, txt_mutualidad.Text, reg);
             GridView1.DataBind();
-            mensaje.Text = "registro Actualizado";
+            mensaje.Text = "Registro Actualizado";
             limpiar();
         }
     }
@@ -124,5 +124,10 @@ public partial class Registro : System.Web.UI.Page
         mensaje.Text = "Eliminado ok";
         GridView1.DataBind();
         limpiar();
+    }
+
+    protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
     }
 }
