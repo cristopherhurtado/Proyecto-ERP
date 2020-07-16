@@ -18,7 +18,7 @@ namespace Mi_RRHH
 
         public ClaseConexionBD()
         {
-            conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MI_RRHHConnectionString"].ConnectionString);
+            conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Mi_RRHHConnectionString1"].ConnectionString);
 
         }
 

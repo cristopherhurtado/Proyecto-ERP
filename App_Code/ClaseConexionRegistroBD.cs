@@ -18,33 +18,33 @@ namespace registro
 
         public ClaseConexionRegistroBD()
         {
-            conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MI_RRHHConnectionString"].ConnectionString);
+            conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Mi_RRHHConnectionString1"].ConnectionString);
         }
 
-        public void insert(string rut, string nombre, string apellido1, string apellido2, string fecha_nacimiento, string estado_civil, string nacionalidad, string calle, string casa, string comuna, string ciudad, string afp, string telefono, string email, string sueldo_base, string movilizacion, string colacion, string asistencia, string bono, string tipo_contrato, string fecha_ing, string cargo, string area, string caja_compensacion, string mutualidad, int salud)
+        public void insert(string codigo, string nombre, string apellido1, string apellido2, string fecha_nac, string estado_civil, string nacionalidad, string calle, string casa, string comuna, string ciudad, string afp, string telefono, string email, string sueldo_base, string movilizacion, string colacion, string asistencia, string bono, string tipo_contrato, string fecha_ing, string cargo, string area, string caja_compensacion, string mutualidad, int prevision)
         {
-            string guardar = "insert into registros(rut,nombre,apellido1,apellido2,fecha_nacimiento,estado_civil,nacionalidad,calle,casa,comuna,ciudad,afp,telefono,email,sueldo_base,movilizacion,colacion,asistencia,bono,tipo_contrato,fecha_ing,cargo,area,caja_compensacion,mutualidad, salud )values('" + rut + "','" + nombre + "','" + apellido1 + "','" + apellido2 + "','" + fecha_nacimiento + "','" + estado_civil + "','" + nacionalidad + "','" + calle + "','" + casa + "','" + comuna + "','" + ciudad + "','" + afp + "','" + telefono + "','" + email + "','" + sueldo_base + "','" + movilizacion + "','" + colacion + "','" + asistencia + "','" + bono + "','" + tipo_contrato + "','" + fecha_ing + "','" + cargo + "','" + area + "','" + caja_compensacion + "','" + mutualidad + "','" + salud + "')";
+            string guardar = "insert into registros(codigo,nombre,apellido1,apellido2,fecha_nac,estado_civil,nacionalidad,calle,casa,comuna,ciudad,afp,telefono,email,sueldo_base,movilizacion,colacion,asistencia,bono,tipo_contrato,fecha_ing,cargo,area,caja_compensacion,mutualidad, prevision )values('" + codigo + "','" + nombre + "','" + apellido1 + "','" + apellido2 + "','" + fecha_nac + "','" + estado_civil + "','" + nacionalidad + "','" + calle + "','" + casa + "','" + comuna + "','" + ciudad + "','" + afp + "','" + telefono + "','" + email + "','" + sueldo_base + "','" + movilizacion + "','" + colacion + "','" + asistencia + "','" + bono + "','" + tipo_contrato + "','" + fecha_ing + "','" + cargo + "','" + area + "','" + caja_compensacion + "','" + mutualidad + "','" + prevision + "')";
             ejecutar(guardar);
         }
 
-        public void update(string rut, string nombre, string apellido1, string apellido2, string fecha_nacimiento, string estado_civil, string nacionalidad, string calle, string casa, string comuna, string ciudad, string afp, string telefono, string email, string sueldo_base, string movilizacion, string colacion, string asistencia, string bono, string tipo_contrato, string fecha_ing, string cargo, string area, string caja_compensacion, string mutualidad, int salud)
+        public void update(string codigo, string nombre, string apellido1, string apellido2, string fecha_nac, string estado_civil, string nacionalidad, string calle, string casa, string comuna, string ciudad, string afp, string telefono, string email, string sueldo_base, string movilizacion, string colacion, string asistencia, string bono, string tipo_contrato, string fecha_ing, string cargo, string area, string caja_compensacion, string mutualidad, int prevision)
         {
-            string actualizar = "update registros set rut= '" + rut + "', nombre= '" + nombre + "', apellido1= '" + apellido1 + "', apellido2= '" + apellido2 + "', fecha_nacimiento= '" + fecha_nacimiento + "', estado_civil= '" + estado_civil + "', nacionalidad= '" + nacionalidad + "', calle= '" + calle + "', casa= '" + casa + "', comuna= '" + comuna + "', ciudad= '" + ciudad + "', afp= '" + afp + "', telefono= '" + telefono + "', email= '" + email + "', sueldo_base= '" + sueldo_base + "', movilizacion= '" + movilizacion + "', colacion= '" + colacion + "', asistencia= '" + asistencia + "', bono= '" + bono + "', tipo_contrato= '" + tipo_contrato + "', fecha_ing= '" + fecha_ing + "', cargo= '" + cargo + "', area= '" + area + "', caja_compensacion= '" + caja_compensacion + "', mutualidad= '" + mutualidad + "', salud= '" + salud + "' where rut= '" + rut + "'";
+            string actualizar = "update registros set codigo= '" + codigo + "', nombre= '" + nombre + "', apellido1= '" + apellido1 + "', apellido2= '" + apellido2 + "', fecha_nac= '" + fecha_nac + "', estado_civil= '" + estado_civil + "', nacionalidad= '" + nacionalidad + "', calle= '" + calle + "', casa= '" + casa + "', comuna= '" + comuna + "', ciudad= '" + ciudad + "', afp= '" + afp + "', telefono= '" + telefono + "', email= '" + email + "', sueldo_base= '" + sueldo_base + "', movilizacion= '" + movilizacion + "', colacion= '" + colacion + "', asistencia= '" + asistencia + "', bono= '" + bono + "', tipo_contrato= '" + tipo_contrato + "', fecha_ing= '" + fecha_ing + "', cargo= '" + cargo + "', area= '" + area + "', caja_compensacion= '" + caja_compensacion + "', mutualidad= '" + mutualidad + "', prevision= '" + prevision + "' where codigo= '" + codigo + "'";
             ejecutar(actualizar);
         }
 
-        public void delete(string rut)
+        public void delete(string codigo)
         {
-            string borrar = "delete from registros where rut= '" + rut + "'";
+            string borrar = "delete from registros where codigo= '" + codigo + "'";
             ejecutar(borrar);
         }
 
-        public DataSet Buscar_Rut(string rut)
+        public DataSet Buscar_Rut(string codigo)
         {
             dset = new DataSet();
             ClaseConexionRegistroBD con = new ClaseConexionRegistroBD();
             con.conexion.Open();
-            string select = "select * from registros where rut= '" + rut + "'";
+            string select = "select * from registros where codigo= '" + codigo + "'";
             da = new SqlDataAdapter(select, con.conexion);
             da.Fill(dset);
             con.conexion.Close();

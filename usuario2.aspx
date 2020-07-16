@@ -49,10 +49,9 @@
                 </tr>
                 <tr>
                   <th>Perfil:</th>
-                    <td><asp:DropDownList ID="cbo_perfil" runat="server" Height="30px" Width="183px" DataSourceID="SqlDataSource3" DataTextField="nom_perfil" DataValueField="cod_perfil" OnSelectedIndexChanged="cbo_perfil_SelectedIndexChanged" ></asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" SelectCommand="SELECT * FROM [perfiles]"></asp:SqlDataSource>
+                    <td><asp:DropDownList ID="cbo_perfil" runat="server" Height="30px" Width="183px" DataSourceID="SqlDataSource2" DataTextField="nom_perfil" DataValueField="cod_perfil" OnSelectedIndexChanged="cbo_perfil_SelectedIndexChanged" ></asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Mi_RRHHConnectionString1 %>" SelectCommand="SELECT * FROM [perfiles]"></asp:SqlDataSource>
                     </td>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" SelectCommand="SELECT [nom_perfil] FROM [perfiles]"></asp:SqlDataSource>
                 </tr>
                 <tr>   
                     <th>Password:</th>
@@ -76,30 +75,38 @@
           
           <br />
         <div class="container col-6">
-          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="codigo" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
-              <Columns>
-                  <asp:BoundField DataField="codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="codigo" />
-                  <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
-                  <asp:BoundField DataField="perfil" HeaderText="Perfil" SortExpression="perfil" />
-              </Columns>
-          </asp:GridView>
-          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" DeleteCommand="DELETE FROM [usuario] WHERE [codigo] = @codigo" InsertCommand="INSERT INTO [usuario] ([codigo], [nombre], [password], [perfil]) VALUES (@codigo, @nombre, @password, @perfil)" SelectCommand="SELECT [codigo], [nombre], [password], [perfil] FROM [usuario]" UpdateCommand="UPDATE [usuario] SET [nombre] = @nombre, [password] = @password, [perfil] = @perfil WHERE [codigo] = @codigo">
-              <DeleteParameters>
-                  <asp:Parameter Name="codigo" Type="String" />
-              </DeleteParameters>
-              <InsertParameters>
-                  <asp:Parameter Name="codigo" Type="String" />
-                  <asp:Parameter Name="nombre" Type="String" />
-                  <asp:Parameter Name="password" Type="String" />
-                  <asp:Parameter Name="perfil" Type="Int32" />
-              </InsertParameters>
-              <UpdateParameters>
-                  <asp:Parameter Name="nombre" Type="String" />
-                  <asp:Parameter Name="password" Type="String" />
-                  <asp:Parameter Name="perfil" Type="Int32" />
-                  <asp:Parameter Name="codigo" Type="String" />
-              </UpdateParameters>
-          </asp:SqlDataSource>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="codigo" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar." ForeColor="Black" GridLines="Horizontal">
+                <Columns>
+                    <asp:BoundField DataField="codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="codigo" />
+                    <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
+                    <asp:BoundField DataField="perfil" HeaderText="Perfil" SortExpression="perfil" />
+                </Columns>
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Mi_RRHHConnectionString1 %>" DeleteCommand="DELETE FROM [usuario] WHERE [codigo] = @codigo" InsertCommand="INSERT INTO [usuario] ([codigo], [nombre], [password], [perfil]) VALUES (@codigo, @nombre, @password, @perfil)" ProviderName="<%$ ConnectionStrings:Mi_RRHHConnectionString1.ProviderName %>" SelectCommand="SELECT [codigo], [nombre], [password], [perfil] FROM [usuario]" UpdateCommand="UPDATE [usuario] SET [nombre] = @nombre, [password] = @password, [perfil] = @perfil WHERE [codigo] = @codigo">
+                <DeleteParameters>
+                    <asp:Parameter Name="codigo" Type="String" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="codigo" Type="String" />
+                    <asp:Parameter Name="nombre" Type="String" />
+                    <asp:Parameter Name="password" Type="String" />
+                    <asp:Parameter Name="perfil" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="nombre" Type="String" />
+                    <asp:Parameter Name="password" Type="String" />
+                    <asp:Parameter Name="perfil" Type="Int32" />
+                    <asp:Parameter Name="codigo" Type="String" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
           <br />
     </div>
   </div>

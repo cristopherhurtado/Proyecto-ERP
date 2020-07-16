@@ -81,8 +81,9 @@
                 </div>
                  <div class="form-group col-md-2">
                       <asp:Label ID="lbFonIsa" runat="server" Text="Prevision"></asp:Label>
-                      <asp:DropDownList ID="cbo_salud" runat="server" Height="35px" Width="183px" DataSourceID="SqlDataSource2" DataTextField="nom_prevision" DataValueField="cod_prevision"></asp:DropDownList>
-                      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" SelectCommand="SELECT * FROM [previsiones]"></asp:SqlDataSource>
+                      <asp:DropDownList ID="cbo_salud" runat="server" Height="35px" Width="183px" DataSourceID="SqlDataSource3" DataTextField="nom_prevision" DataValueField="cod_prevision"></asp:DropDownList>
+                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Mi_RRHHConnectionString1 %>" SelectCommand="SELECT * FROM [previsiones]"></asp:SqlDataSource>
+                      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Mi_RRHHConnectionString1 %>" SelectCommand="SELECT * FROM [perfiles]"></asp:SqlDataSource>
                 </div>
                 <div class="form-group col-md-3">
                     <asp:Label ID="lbAfp" runat="server" Text="AFP"></asp:Label>
@@ -156,39 +157,48 @@
 
          
          <br />
-         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="rut" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
+         
+         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="codigo" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar." ForeColor="Black" GridLines="Horizontal">
              <Columns>
-                 <asp:BoundField DataField="rut" HeaderText="Rut" ReadOnly="True" SortExpression="rut" />
+                 <asp:BoundField DataField="codigo" HeaderText="Rut" ReadOnly="True" SortExpression="codigo" />
                  <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
-                 <asp:BoundField DataField="apellido1" HeaderText="Apellido1" SortExpression="apellido1" />
+                 <asp:BoundField DataField="apellido1" HeaderText="Apellido 1" SortExpression="apellido1" />
+                 <asp:BoundField DataField="apellido2" HeaderText="Apellido 2" SortExpression="apellido2" />
                  <asp:BoundField DataField="sueldo_base" HeaderText="Sueldo Base" SortExpression="sueldo_base" />
-                 <asp:BoundField DataField="movilizacion" HeaderText="Bono Movilizacion" SortExpression="movilizacion" />
-                 <asp:BoundField DataField="colacion" HeaderText="Bono Colacion" SortExpression="colacion" />
-                 <asp:BoundField DataField="asistencia" HeaderText="Bono Asistencia" SortExpression="asistencia" />
+                 <asp:BoundField DataField="movilizacion" HeaderText="Movilizacion" SortExpression="movilizacion" />
+                 <asp:BoundField DataField="colacion" HeaderText="Colacion" SortExpression="colacion" />
+                 <asp:BoundField DataField="asistencia" HeaderText="Asistencia" SortExpression="asistencia" />
                  <asp:BoundField DataField="bono" HeaderText="Bono" SortExpression="bono" />
-                 <asp:BoundField DataField="tipo_contrato" HeaderText="Tipo contrato" SortExpression="tipo_contrato" />
-                 <asp:BoundField DataField="fecha_ing" HeaderText="Fecha Ingreso" SortExpression="fecha_ing" />
+                 <asp:BoundField DataField="tipo_contrato" HeaderText="Tipo Contrato" SortExpression="tipo_contrato" />
                  <asp:BoundField DataField="cargo" HeaderText="Cargo" SortExpression="cargo" />
                  <asp:BoundField DataField="area" HeaderText="Area" SortExpression="area" />
+                 <asp:BoundField DataField="prevision" HeaderText="Prevision" SortExpression="prevision" />
              </Columns>
+             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+             <SortedAscendingCellStyle BackColor="#F7F7F7" />
+             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+             <SortedDescendingCellStyle BackColor="#E5E5E5" />
+             <SortedDescendingHeaderStyle BackColor="#242121" />
          </asp:GridView>
-         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MI_RRHHConnectionString %>" DeleteCommand="DELETE FROM [registros] WHERE [rut] = @rut" InsertCommand="INSERT INTO [registros] ([rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud]) VALUES (@rut, @nombre, @apellido1, @apellido2, @fecha_nacimiento, @estado_civil, @nacionalidad, @calle, @casa, @comuna, @ciudad, @afp, @telefono, @email, @sueldo_base, @movilizacion, @colacion, @asistencia, @bono, @tipo_contrato, @fecha_ing, @cargo, @area, @caja_compensacion, @mutualidad, @salud)" ProviderName="<%$ ConnectionStrings:MI_RRHHConnectionString.ProviderName %>" SelectCommand="SELECT [rut], [nombre], [apellido1], [apellido2], [fecha_nacimiento], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [afp], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [salud] FROM [registros]" UpdateCommand="UPDATE [registros] SET [nombre] = @nombre, [apellido1] = @apellido1, [apellido2] = @apellido2, [fecha_nacimiento] = @fecha_nacimiento, [estado_civil] = @estado_civil, [nacionalidad] = @nacionalidad, [calle] = @calle, [casa] = @casa, [comuna] = @comuna, [ciudad] = @ciudad, [afp] = @afp, [telefono] = @telefono, [email] = @email, [sueldo_base] = @sueldo_base, [movilizacion] = @movilizacion, [colacion] = @colacion, [asistencia] = @asistencia, [bono] = @bono, [tipo_contrato] = @tipo_contrato, [fecha_ing] = @fecha_ing, [cargo] = @cargo, [area] = @area, [caja_compensacion] = @caja_compensacion, [mutualidad] = @mutualidad, [salud] = @salud WHERE [rut] = @rut" OnSelecting="SqlDataSource1_Selecting">
+         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Mi_RRHHConnectionString1 %>" DeleteCommand="DELETE FROM [registros] WHERE [codigo] = @codigo" InsertCommand="INSERT INTO [registros] ([codigo], [nombre], [apellido1], [apellido2], [fecha_nac], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [prevision]) VALUES (@codigo, @nombre, @apellido1, @apellido2, @fecha_nac, @estado_civil, @nacionalidad, @calle, @casa, @comuna, @ciudad, @telefono, @email, @sueldo_base, @movilizacion, @colacion, @asistencia, @bono, @tipo_contrato, @fecha_ing, @cargo, @area, @caja_compensacion, @mutualidad, @prevision)" ProviderName="<%$ ConnectionStrings:Mi_RRHHConnectionString1.ProviderName %>" SelectCommand="SELECT [codigo], [nombre], [apellido1], [apellido2], [fecha_nac], [estado_civil], [nacionalidad], [calle], [casa], [comuna], [ciudad], [telefono], [email], [sueldo_base], [movilizacion], [colacion], [asistencia], [bono], [tipo_contrato], [fecha_ing], [cargo], [area], [caja_compensacion], [mutualidad], [prevision] FROM [registros]" UpdateCommand="UPDATE [registros] SET [nombre] = @nombre, [apellido1] = @apellido1, [apellido2] = @apellido2, [fecha_nac] = @fecha_nac, [estado_civil] = @estado_civil, [nacionalidad] = @nacionalidad, [calle] = @calle, [casa] = @casa, [comuna] = @comuna, [ciudad] = @ciudad, [telefono] = @telefono, [email] = @email, [sueldo_base] = @sueldo_base, [movilizacion] = @movilizacion, [colacion] = @colacion, [asistencia] = @asistencia, [bono] = @bono, [tipo_contrato] = @tipo_contrato, [fecha_ing] = @fecha_ing, [cargo] = @cargo, [area] = @area, [caja_compensacion] = @caja_compensacion, [mutualidad] = @mutualidad, [prevision] = @prevision WHERE [codigo] = @codigo">
              <DeleteParameters>
-                 <asp:Parameter Name="rut" Type="String" />
+                 <asp:Parameter Name="codigo" Type="String" />
              </DeleteParameters>
              <InsertParameters>
-                 <asp:Parameter Name="rut" Type="String" />
+                 <asp:Parameter Name="codigo" Type="String" />
                  <asp:Parameter Name="nombre" Type="String" />
                  <asp:Parameter Name="apellido1" Type="String" />
                  <asp:Parameter Name="apellido2" Type="String" />
-                 <asp:Parameter Name="fecha_nacimiento" Type="DateTime" />
+                 <asp:Parameter Name="fecha_nac" Type="DateTime" />
                  <asp:Parameter Name="estado_civil" Type="String" />
                  <asp:Parameter Name="nacionalidad" Type="String" />
                  <asp:Parameter Name="calle" Type="String" />
                  <asp:Parameter Name="casa" Type="String" />
                  <asp:Parameter Name="comuna" Type="String" />
                  <asp:Parameter Name="ciudad" Type="String" />
-                 <asp:Parameter Name="afp" Type="String" />
                  <asp:Parameter Name="telefono" Type="String" />
                  <asp:Parameter Name="email" Type="String" />
                  <asp:Parameter Name="sueldo_base" Type="String" />
@@ -202,20 +212,19 @@
                  <asp:Parameter Name="area" Type="String" />
                  <asp:Parameter Name="caja_compensacion" Type="String" />
                  <asp:Parameter Name="mutualidad" Type="String" />
-                 <asp:Parameter Name="salud" Type="Int32" />
+                 <asp:Parameter Name="prevision" Type="Int32" />
              </InsertParameters>
              <UpdateParameters>
                  <asp:Parameter Name="nombre" Type="String" />
                  <asp:Parameter Name="apellido1" Type="String" />
                  <asp:Parameter Name="apellido2" Type="String" />
-                 <asp:Parameter Name="fecha_nacimiento" Type="DateTime" />
+                 <asp:Parameter Name="fecha_nac" Type="DateTime" />
                  <asp:Parameter Name="estado_civil" Type="String" />
                  <asp:Parameter Name="nacionalidad" Type="String" />
                  <asp:Parameter Name="calle" Type="String" />
                  <asp:Parameter Name="casa" Type="String" />
                  <asp:Parameter Name="comuna" Type="String" />
                  <asp:Parameter Name="ciudad" Type="String" />
-                 <asp:Parameter Name="afp" Type="String" />
                  <asp:Parameter Name="telefono" Type="String" />
                  <asp:Parameter Name="email" Type="String" />
                  <asp:Parameter Name="sueldo_base" Type="String" />
@@ -229,12 +238,12 @@
                  <asp:Parameter Name="area" Type="String" />
                  <asp:Parameter Name="caja_compensacion" Type="String" />
                  <asp:Parameter Name="mutualidad" Type="String" />
-                 <asp:Parameter Name="salud" Type="Int32" />
-                 <asp:Parameter Name="rut" Type="String" />
+                 <asp:Parameter Name="prevision" Type="Int32" />
+                 <asp:Parameter Name="codigo" Type="String" />
              </UpdateParameters>
          </asp:SqlDataSource>
-        <br />
-    </div> 
+    </div>
+    <br />
    </form>
         
 </body>
